@@ -115,14 +115,53 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_UNAVAILABLE __attribute__((unavailable))
 #endif
 #if defined(__has_feature) && __has_feature(modules)
+@import ObjectiveC;
+@import Foundation;
 @import UIKit;
 @import TTTAttributedLabel;
-@import Foundation;
 @import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class UIColor;
+
+SWIFT_CLASS("_TtC12BotfolioChat12BotfolioChat")
+@interface BotfolioChat : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull botMessageBackgroundColor;)
++ (UIColor * _Nonnull)botMessageBackgroundColor;
++ (void)setBotMessageBackgroundColor:(UIColor * _Nonnull)c;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull botMessageTextColor;)
++ (UIColor * _Nonnull)botMessageTextColor;
++ (void)setBotMessageTextColor:(UIColor * _Nonnull)c;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull userMessageBackgroundColor;)
++ (UIColor * _Nonnull)userMessageBackgroundColor;
++ (void)setUserMessageBackgroundColor:(UIColor * _Nonnull)c;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull userMessageTextColor;)
++ (UIColor * _Nonnull)userMessageTextColor;
++ (void)setUserMessageTextColor:(UIColor * _Nonnull)c;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull mainTintColor;)
++ (UIColor * _Nonnull)mainTintColor;
++ (void)setMainTintColor:(UIColor * _Nonnull)c;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull fontRegularName;)
++ (NSString * _Nonnull)fontRegularName;
++ (void)setFontRegularName:(NSString * _Nonnull)fontName;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull fontBoldName;)
++ (NSString * _Nonnull)fontBoldName;
++ (void)setFontBoldName:(NSString * _Nonnull)fontName;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull fontSemiBoldName;)
++ (NSString * _Nonnull)fontSemiBoldName;
++ (void)setFontSemiBoldName:(NSString * _Nonnull)fontName;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull placeholderImageName;)
++ (NSString * _Nonnull)placeholderImageName;
++ (void)setPlaceholderImageName:(NSString * _Nonnull)imageName;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull botfolioChatNewMessageNotification;)
++ (NSNotificationName _Nonnull)botfolioChatNewMessageNotification;
++ (void)configureWithBotApiToken:(NSString * _Nonnull)botApiToken firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName externalJsonData:(NSDictionary<NSString *, id> * _Nullable)externalJsonData domain:(NSString * _Nonnull)domain;
++ (void)getUnreadCountWithCompletion:(void (^ _Nonnull)(NSInteger))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UITableView;
 @class UIView;
 @class UITableViewCell;
