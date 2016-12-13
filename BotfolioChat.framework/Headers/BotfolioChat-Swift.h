@@ -124,10 +124,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+enum MessageTypes : NSInteger;
 @class UIColor;
 
 SWIFT_CLASS("_TtC12BotfolioChat12BotfolioChat")
 @interface BotfolioChat : NSObject
++ (enum MessageTypes)getMessageTypeByInt:(NSInteger)typeInt;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) UIColor * _Nonnull botMessageBackgroundColor;)
 + (UIColor * _Nonnull)botMessageBackgroundColor;
 + (void)setBotMessageBackgroundColor:(UIColor * _Nonnull)c;
@@ -241,19 +243,24 @@ SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-typedef SWIFT_ENUM(NSInteger, ButtonTypes) {
-  ButtonTypesWeb = 1,
-  ButtonTypesPayload = 2,
-  ButtonTypesPhone = 3,
-};
+
+SWIFT_CLASS("_TtC12BotfolioChat6Button")
+@interface Button : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified text;
+@property (nonatomic, copy) NSString * _Nullable payload;
+@property (nonatomic, copy) NSString * _Nullable url;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
 
 @class CLLocation;
 
 SWIFT_CLASS("_TtC12BotfolioChat7Message")
 @interface Message : NSObject
 @property (nonatomic, copy) NSString * _Nullable text;
+@property (nonatomic) NSInteger messageTypeInt;
 @property (nonatomic, copy) NSDate * _Null_unspecified messageDate;
 @property (nonatomic, copy) NSArray<Message *> * _Null_unspecified genericList;
+@property (nonatomic, copy) NSArray<Button *> * _Null_unspecified buttonList;
 @property (nonatomic, copy) NSString * _Null_unspecified imageUrl;
 @property (nonatomic, copy) NSString * _Nullable desc;
 @property (nonatomic, copy) NSString * _Nullable addressTitle;
