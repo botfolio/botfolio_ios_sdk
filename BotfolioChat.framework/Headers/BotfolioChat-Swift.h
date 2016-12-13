@@ -157,7 +157,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull plac
 + (void)setPlaceholderImageName:(NSString * _Nonnull)imageName;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull botfolioChatNewMessageNotification;)
 + (NSNotificationName _Nonnull)botfolioChatNewMessageNotification;
-+ (void)configureWithBotApiToken:(NSString * _Nonnull)botApiToken firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName externalJsonData:(NSDictionary<NSString *, id> * _Nullable)externalJsonData domain:(NSString * _Nonnull)domain;
++ (void)configureWithBotApiToken:(NSString * _Nonnull)botApiToken;
++ (void)configureWithBotApiToken:(NSString * _Null_unspecified)botApiToken firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName externalJsonData:(NSDictionary<NSString *, id> * _Nullable)externalJsonData domain:(NSString * _Nonnull)domain;
 + (void)getUnreadCountWithCompletion:(void (^ _Nonnull)(NSInteger))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -239,6 +240,51 @@ SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, ButtonTypes) {
+  ButtonTypesWeb = 1,
+  ButtonTypesPayload = 2,
+  ButtonTypesPhone = 3,
+};
+
+@class CLLocation;
+
+SWIFT_CLASS("_TtC12BotfolioChat7Message")
+@interface Message : NSObject
+@property (nonatomic, copy) NSString * _Nullable text;
+@property (nonatomic, copy) NSDate * _Null_unspecified messageDate;
+@property (nonatomic, copy) NSArray<Message *> * _Null_unspecified genericList;
+@property (nonatomic, copy) NSString * _Null_unspecified imageUrl;
+@property (nonatomic, copy) NSString * _Nullable desc;
+@property (nonatomic, copy) NSString * _Nullable addressTitle;
+@property (nonatomic, copy) NSString * _Nullable addressDetails;
+@property (nonatomic, strong) CLLocation * _Null_unspecified mapLocation;
+@property (nonatomic, copy) NSString * _Null_unspecified videoUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified voiceUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified contactName;
+@property (nonatomic, copy) NSString * _Null_unspecified contactSurname;
+@property (nonatomic, copy) NSString * _Null_unspecified contactNumber;
+@property (nonatomic, copy) NSString * _Null_unspecified documentName;
+@property (nonatomic, copy) NSString * _Null_unspecified documentUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified documentType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM(NSInteger, MessageTypes) {
+  MessageTypesText = 1,
+  MessageTypesButtonList = 2,
+  MessageTypesGeneric = 3,
+  MessageTypesGenericArray = 4,
+  MessageTypesImage = 5,
+  MessageTypesLocation = 6,
+  MessageTypesVideo = 7,
+  MessageTypesVoice = 8,
+  MessageTypesContact = 9,
+  MessageTypesDocument = 10,
+  MessageTypesTyping = 97,
+  MessageTypesNone = 98,
+  MessageTypesUnread = 99,
+};
 
 
 @interface NSMutableData (SWIFT_EXTENSION(BotfolioChat))
