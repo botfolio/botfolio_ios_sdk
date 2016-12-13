@@ -39,7 +39,7 @@ s.author             = { "Aleks Mutlu" => "aleksmutlu@gmail.com" }
 # s.authors            = { "Aleks Mutlu" => "aleksmutlu@gmail.com" }
 # s.social_media_url   = "http://twitter.com/Aleks Mutlu"
 
-s.platform     = :ios, "9.3"
+s.platform     = :ios, "9.0"
 s.source = { :git => 'https://github.com/botfolio/botfolio_ios_sdk.git', :tag => s.version }
 s.public_header_files = 'BotfolioChat.framework/Headers/*.h'
 s.ios.vendored_frameworks = 'BotfolioChat.framework'
