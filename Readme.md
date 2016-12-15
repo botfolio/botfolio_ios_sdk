@@ -108,14 +108,21 @@ Example:
 ```swift
 ...
 
-NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(newMessage(_:)), name: NSNotificationName.Botfolio.NewMessage, object: nil)
+NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(newMessage(notification:)), name: NSNotification.Name.Botfolio.NewMessage, object: nil)
 
 ...
 
 func newMessage(notification: NSNotification) {
-    let message = notification.userInfo!["message"] as! Message
+    if let message = notification.userInfo?["message"] as? Message {
+        if message.messageType == .text {
+            print(message.text!)
+        }
+        else if message.messageType == .contact {
+            print(message.contactName)
+        }
 
-    print(message.messageType)
+        print("Sent by \(message.sentByBot == true ? "Bot" : "User")")
+    }
 }
 
 ```
