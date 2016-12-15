@@ -1,0 +1,46 @@
+{
+  "name": "BotfolioChat",
+  "version": "0.0.1",
+  "summary": "A short description of BotfolioChat.",
+  "description": "sd",
+  "homepage": "http://EXAMPLE/BotfolioChat",
+  "authors": {
+    "Aleks Mutlu": "aleksmutlu@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/botfolio/botfolio_ios_sdk.git",
+    "tag": "0.0.1"
+  },
+  "public_header_files": "BotfolioChat.framework/Headers/*.h",
+  "ios": {
+    "vendored_frameworks": "BotfolioChat.framework"
+  },
+  "preserve_paths": "BotfolioChat.framework",
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "dependencies": {
+    "Alamofire": [
+      "~> 3.5"
+    ],
+    "KeychainAccess": [
+      "~> 2.4"
+    ],
+    "Kingfisher": [
+      "~> 2.4"
+    ],
+    "TTTAttributedLabel": [
+      "~> 2.0.0"
+    ],
+    "NYTPhotoViewer": [
+      "~> 1.1.0"
+    ]
+  },
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
