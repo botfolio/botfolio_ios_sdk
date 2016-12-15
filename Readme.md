@@ -7,6 +7,7 @@
 
 ### CocoaPods
 
+Note: If you are developing an ObjC app, use the master branch instead
 ```ruby
 pod 'BotfolioChat', :git => 'https://github.com/botfolio/botfolio_ios_sdk.git', :branch => 'swift23'
 ```
