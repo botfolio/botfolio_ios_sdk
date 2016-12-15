@@ -180,7 +180,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
-@interface BotfolioChatViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TTTAttributedLabelDelegate, UIScrollViewDelegate>
+@interface BotfolioChatViewController : UIViewController <UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TTTAttributedLabelDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
