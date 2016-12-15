@@ -1,0 +1,6 @@
+framework module Pods_BotfolioChatExampleSwift {
+  umbrella header "Pods-BotfolioChatExampleSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

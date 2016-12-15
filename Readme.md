@@ -1,7 +1,7 @@
 ## Requirements
 
-- iOS 9.3+
-- Swift 2.3
+- iOS 9.0+
+- Swift 3
 
 ## Installation
 
@@ -35,14 +35,16 @@ Make sure to make the necessary configuration while app starts.
 Example:
 ```swift
 func applicationDidFinishLaunching(application: UIApplication) {
-    BotfolioChat.configure(“YOUR_BOTFOLIO_API_TOKEN”)
+    BotfolioChat.configure(botApiToken: "YOUR_BOT_API_TOKEN")
 }
 ```
 You can optionally set extra parameters in the configuration section. 
 
 ```swift
-func configure(botApiToken: String, firstName: String? = nil, lastName: String? = nil, 
-externalJsonData: [String: AnyObject]? = nil, domain: String = "https://developers.botfol.io")
+var externalJsonData: [String: Any]!
+externalJsonData = ["age": 25, "gender": "male"]
+
+BotfolioChat.configure(botApiToken: "YOUT_BOT_API_TOKEN", firstName: "FIRSTNAME", lastName: "LASTNAME", externalJsonData: externalJsonData as [String: AnyObject], domain: "https://developers.botfol.io")
 ```
 ## Localization
 
@@ -71,11 +73,11 @@ You can also change the colors of UI Elements.
 
 Example:
 ```swift
-BotfolioChat.botMessageBackgroundColor = UIColor.yellowColor()
-BotfolioChat.botMessageTextColor = UIColor.purpleColor()
-BotfolioChat.userMessageBackgroundColor = UIColor.blueColor()
-BotfolioChat.userMessageTextColor = UIColor.blackColor()
-BotfolioChat.mainTintColor = UIColor.redColor()
+BotfolioChat.botMessageBackgroundColor = yellow
+BotfolioChat.botMessageTextColor = .purple
+BotfolioChat.userMessageBackgroundColor = .blue
+BotfolioChat.userMessageTextColor = .black
+BotfolioChat.mainTintColor = .red
 ```
 
 ### Placeholder
