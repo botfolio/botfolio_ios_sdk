@@ -92,15 +92,46 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 # endif
 #endif
 #if defined(__has_feature) && __has_feature(modules)
+@import ObjectiveC;
+@import Foundation;
 @import UIKit;
 @import TTTAttributedLabel;
 @import CoreGraphics;
-@import Foundation;
-@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+enum MessageTypes : NSInteger;
+@class UIColor;
+
+SWIFT_CLASS("_TtC12BotfolioChat12BotfolioChat")
+@interface BotfolioChat : NSObject
++ (enum MessageTypes)getMessageTypeByInt:(NSInteger)typeInt;
++ (UIColor * _Nonnull)botMessageBackgroundColor;
++ (void)setBotMessageBackgroundColor:(UIColor * _Nonnull)c;
++ (UIColor * _Nonnull)botMessageTextColor;
++ (void)setBotMessageTextColor:(UIColor * _Nonnull)c;
++ (UIColor * _Nonnull)userMessageBackgroundColor;
++ (void)setUserMessageBackgroundColor:(UIColor * _Nonnull)c;
++ (UIColor * _Nonnull)userMessageTextColor;
++ (void)setUserMessageTextColor:(UIColor * _Nonnull)c;
++ (UIColor * _Nonnull)mainTintColor;
++ (void)setMainTintColor:(UIColor * _Nonnull)c;
++ (NSString * _Nonnull)fontRegularName;
++ (void)setFontRegularName:(NSString * _Nonnull)fontName;
++ (NSString * _Nonnull)fontBoldName;
++ (void)setFontBoldName:(NSString * _Nonnull)fontName;
++ (NSString * _Nonnull)fontSemiBoldName;
++ (void)setFontSemiBoldName:(NSString * _Nonnull)fontName;
++ (NSString * _Nonnull)placeholderImageName;
++ (void)setPlaceholderImageName:(NSString * _Nonnull)imageName;
++ (NSNotificationName _Nonnull)botfolioChatNewMessageNotification;
++ (void)configure:(NSString * _Nonnull)botApiToken;
++ (void)configure:(NSString * _Null_unspecified)botApiToken firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName externalJsonData:(NSDictionary<NSString *, id> * _Nullable)externalJsonData domain:(NSString * _Nonnull)domain;
++ (void)getUnreadCount:(void (^ _Nonnull)(NSInteger count))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UITableView;
 @class NSIndexPath;
 @class UIView;
@@ -109,11 +140,11 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @class UICollectionViewLayout;
 @class UICollectionViewCell;
 @class UIImagePickerController;
-@class UIGestureRecognizer;
-@class UITouch;
 @class TTTAttributedLabel;
 @class NSURL;
 @class UIScrollView;
+@class UIGestureRecognizer;
+@class UITouch;
 @class NSBundle;
 @class NSCoder;
 
@@ -145,9 +176,6 @@ SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> * _Nonnull)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
 
-/// ////////////////////////////////////// MARK: GestureRecognizer Delegate //////////////////////////////////////
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceive:(UITouch * _Nonnull)touch;
-
 /// ///////////////////////// MARK: Menu /////////////////////////
 - (BOOL)canBecomeFirstResponder;
 
@@ -162,6 +190,61 @@ SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+SWIFT_CLASS("_TtC12BotfolioChat6Button")
+@interface Button : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified text;
+@property (nonatomic, copy) NSString * _Nullable payload;
+@property (nonatomic, copy) NSString * _Nullable url;
+@end
+
+typedef SWIFT_ENUM(NSInteger, ButtonTypes) {
+  ButtonTypesweb = 1,
+  ButtonTypespayload = 2,
+  ButtonTypesphone = 3,
+};
+
+@class NSDate;
+@class CLLocation;
+
+SWIFT_CLASS("_TtC12BotfolioChat7Message")
+@interface Message : NSObject
+@property (nonatomic) NSInteger messageId;
+@property (nonatomic, copy) NSString * _Nullable text;
+@property (nonatomic, strong) NSDate * _Null_unspecified messageDate;
+@property (nonatomic, copy) NSArray<Message *> * _Null_unspecified genericList;
+@property (nonatomic, copy) NSArray<Button *> * _Null_unspecified buttonList;
+@property (nonatomic, copy) NSString * _Null_unspecified imageUrl;
+@property (nonatomic, copy) NSString * _Nullable desc;
+@property (nonatomic, copy) NSString * _Nullable addressTitle;
+@property (nonatomic, copy) NSString * _Nullable addressDetails;
+@property (nonatomic, strong) CLLocation * _Null_unspecified mapLocation;
+@property (nonatomic, copy) NSString * _Null_unspecified videoUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified voiceUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified contactName;
+@property (nonatomic, copy) NSString * _Null_unspecified contactSurname;
+@property (nonatomic, copy) NSString * _Null_unspecified contactNumber;
+@property (nonatomic, copy) NSString * _Null_unspecified documentName;
+@property (nonatomic, copy) NSString * _Null_unspecified documentUrl;
+@property (nonatomic, copy) NSString * _Null_unspecified documentType;
+@end
+
+typedef SWIFT_ENUM(NSInteger, MessageTypes) {
+  MessageTypestext = 1,
+  MessageTypesbuttonList = 2,
+  MessageTypesgeneric = 3,
+  MessageTypesgenericArray = 4,
+  MessageTypesimage = 5,
+  MessageTypeslocation = 6,
+  MessageTypesvideo = 7,
+  MessageTypesvoice = 8,
+  MessageTypescontact = 9,
+  MessageTypesdocument = 10,
+  MessageTypestyping = 97,
+  MessageTypesnone = 98,
+  MessageTypesunread = 99,
+};
 
 
 @interface NSDate (SWIFT_EXTENSION(BotfolioChat))
