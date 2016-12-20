@@ -19,21 +19,27 @@ PODS:
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
-  - BotfolioChat (from `~/Documents/a/`)
+  - BotfolioChat (from `https://github.com/botfolio/botfolio_ios_sdk.git`, branch `swift23`)
 
 EXTERNAL SOURCES:
   BotfolioChat:
-    :path: "~/Documents/a/"
+    :branch: swift23
+    :git: https://github.com/botfolio/botfolio_ios_sdk.git
+
+CHECKOUT OPTIONS:
+  BotfolioChat:
+    :commit: c101156d24b17970d527f53cc910e1eff470da8c
+    :git: https://github.com/botfolio/botfolio_ios_sdk.git
 
 SPEC CHECKSUMS:
   Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
-  BotfolioChat: 6ba9c401f53fad3fdd049a21fbbc1f5fb4481a36
+  BotfolioChat: c2bb46f5a1680d97952a7e4e7e61a8677cdc71a5
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   KeychainAccess: c2a71459af5bddf720a51806046a598500976c04
   Kingfisher: 7e5515bf6c4f2acad91f6400955d2257549cab7b
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 1b87882289cf23ea9511f426366307c412899241
+PODFILE CHECKSUM: 575f607945d0f573a810f0065b1a7b0e541647f9
 
 COCOAPODS: 1.0.1
