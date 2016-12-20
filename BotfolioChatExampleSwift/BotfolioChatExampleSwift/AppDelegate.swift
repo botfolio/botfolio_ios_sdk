@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         BotfolioChat.configure(botApiToken: "YOUR_BOT_API_TOKEN")
-        
+
         /* You can optionally set extra parameters
          
         var externalJsonData: [String: Any]!

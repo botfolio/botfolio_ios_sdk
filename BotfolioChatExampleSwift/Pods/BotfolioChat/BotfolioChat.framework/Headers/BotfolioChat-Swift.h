@@ -180,7 +180,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12BotfolioChat26BotfolioChatViewController")
-@interface BotfolioChatViewController : UIViewController <UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TTTAttributedLabelDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BotfolioChatViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TTTAttributedLabelDelegate, UIScrollViewDelegate>
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
@@ -256,6 +256,7 @@ SWIFT_CLASS("_TtC12BotfolioChat6Button")
 
 SWIFT_CLASS("_TtC12BotfolioChat7Message")
 @interface Message : NSObject
+@property (nonatomic) NSInteger messageId;
 @property (nonatomic, copy) NSString * _Nullable text;
 @property (nonatomic) NSInteger messageTypeInt;
 @property (nonatomic, copy) NSDate * _Null_unspecified messageDate;

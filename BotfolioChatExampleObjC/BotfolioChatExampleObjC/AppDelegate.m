@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [BotfolioChat configureWithBotApiToken:@"YOUR_BOT_API_TOKEN"];
-    
+
     /* You can optionally set extra parameters
      
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];

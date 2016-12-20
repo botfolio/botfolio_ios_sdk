@@ -9,7 +9,7 @@ PODS:
     - TTTAttributedLabel
   - FLAnimatedImage (1.0.12)
   - KeychainAccess (3.0.1)
-  - Kingfisher (3.2.2)
+  - Kingfisher (3.2.3)
   - NYTPhotoViewer (1.2.0):
     - NYTPhotoViewer/AnimatedGifSupport (= 1.2.0)
     - NYTPhotoViewer/Core (= 1.2.0)
@@ -30,7 +30,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   BotfolioChat:
-    :commit: 8834dc39f0d130a01ec0337d8fca8bd192f71996
+    :commit: 2b419af7647d7ad54c3fdeb0134572df9270e5ff
     :git: https://github.com/botfolio/botfolio_ios_sdk.git
 
 SPEC CHECKSUMS:
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   BotfolioChat: 4a7eb745c8ab682ad814813b375d0ee687cba95f
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
-  Kingfisher: 821466474ad7ffc375a4aecadfa05068cfed67b3
+  Kingfisher: 0e789b4069e20da071d6eec59a9cfb4cee67a1cb
   NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
   SwiftR: 2128cffaef5436cdbf9f1825f116339e3cf64497
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656

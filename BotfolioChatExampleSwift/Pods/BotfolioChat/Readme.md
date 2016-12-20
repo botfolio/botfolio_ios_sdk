@@ -1,11 +1,13 @@
 ## Requirements
 
-- iOS 9.3+
-- Swift 2.3
+- iOS 9.0+
+- Swift 3
 
 ## Installation
 
 ### CocoaPods
+
+Note: If you are developing an ObjC app, use this branch
 
 ```ruby
 pod 'BotfolioChat', :git => 'https://github.com/botfolio/botfolio_ios_sdk.git', :branch => 'master'
@@ -35,14 +37,16 @@ Make sure to make the necessary configuration while app starts.
 Example:
 ```swift
 func applicationDidFinishLaunching(application: UIApplication) {
-    BotfolioChat.configure(“YOUR_BOTFOLIO_API_TOKEN”)
+    BotfolioChat.configure(botApiToken: "YOUR_BOT_API_TOKEN")
 }
 ```
 You can optionally set extra parameters in the configuration section. 
 
 ```swift
-func configure(botApiToken: String, firstName: String? = nil, lastName: String? = nil, 
-externalJsonData: [String: AnyObject]? = nil, domain: String = "https://developers.botfol.io")
+var externalJsonData: [String: Any]!
+externalJsonData = ["age": 25, "gender": "male"]
+
+BotfolioChat.configure(botApiToken: "YOUT_BOT_API_TOKEN", firstName: "FIRSTNAME", lastName: "LASTNAME", externalJsonData: externalJsonData as [String: AnyObject], domain: "https://developers.botfol.io")
 ```
 ## Localization
 
@@ -71,11 +75,11 @@ You can also change the colors of UI Elements.
 
 Example:
 ```swift
-BotfolioChat.botMessageBackgroundColor = UIColor.yellowColor()
-BotfolioChat.botMessageTextColor = UIColor.purpleColor()
-BotfolioChat.userMessageBackgroundColor = UIColor.blueColor()
-BotfolioChat.userMessageTextColor = UIColor.blackColor()
-BotfolioChat.mainTintColor = UIColor.redColor()
+BotfolioChat.botMessageBackgroundColor = yellow
+BotfolioChat.botMessageTextColor = .purple
+BotfolioChat.userMessageBackgroundColor = .blue
+BotfolioChat.userMessageTextColor = .black
+BotfolioChat.mainTintColor = .red
 ```
 
 ### Placeholder
@@ -106,14 +110,21 @@ Example:
 ```swift
 ...
 
-NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(newMessage(_:)), name: NSNotificationName.Botfolio.NewMessage, object: nil)
+NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(newMessage(notification:)), name: NSNotification.Name.Botfolio.NewMessage, object: nil)
 
 ...
 
 func newMessage(notification: NSNotification) {
-    let message = notification.userInfo!["message"] as! Message
+    if let message = notification.userInfo?["message"] as? Message {
+        if message.messageType == .text {
+            print(message.text!)
+        }
+        else if message.messageType == .contact {
+            print(message.contactName)
+        }
 
-    print(message.messageType)
+        print("Sent by \(message.sentByBot == true ? "Bot" : "User")")
+    }
 }
 
 ```
